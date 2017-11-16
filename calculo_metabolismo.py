@@ -1,18 +1,59 @@
-print " "
+print ""
 
-# Calculo do TMB (Taxa do Metabolismo Basal)
 
-genero = input ("Qual seu genero? 1-Homen ; 2-Mulher ")
-peso = input ("Qual seu peso em Kg ? ")
-altura = input ("Qual sua altura em cm ? ")
-idade = input ("Qual sua idade em anos ? ")
+print "Calculo do TMB (Taxa do Metabolismo Basal)"
 
-if   genero == 1:
-       TMB = ((10 * peso) + (6.25 * altura) - (5 * idade) + 5  )
-elif genero == 2:
-       TMB = ((10 * peso) + (6.25 * altura) - (5 * idade) - 161)
+lacoTMB = 0
+
+while ( lacoTMB <> 1 ):
+
+   print""
+
+   genero = input ("Qual seu genero? 1-Homen ; 2-Mulher ")
+
+   while (genero <> ( 1 or 2 )):
+      print ""
+      print "escolha um genero existente"
+      genero = input ("Qual o seu genero? 1-Homen ; 2-Mulher ")
+      print ""
+
+   peso = input ("Qual seu peso em Kg ? ")
+   alturam = input ("Qual sua altura em ms ? ")
+   alturacm = ( alturam * 100 )
+   idade = input ("Qual sua idade em anos ? ")
+   BF = input ("Qual o seu percentual de gordura corporal? Digite 0 caso nao saiba? ")
+
+   print ""
+
+   if   genero == 1:
+      print "Voce e Homem"
+   elif genero == 2:
+      print "Voce e Mulher"
+   else:
+      print ""
+
+   print "o seu peso e", peso, "kgs"
+   print "a sua altura e", alturam, "ms"
+   print "a sua idade e", idade, "anos"
+   if   BF == 0:
+      print "o seu percentual de gordura nao e conhecido"
+   else:
+      print "o seu percentual de gordura e de ", BF, "%"
+
+   print""
+
+   lacoTMB = input ("Esses dados estao corretos? 1-Sim ; 2-Nao ? ")
+
+
+if   BF == 0:
+   if   genero == 1:
+      TMB = ((10 * peso) + (6.25 * alturacm) - (5 * idade) + 5  )
+   elif genero == 2:
+      TMB = ((10 * peso) + (6.25 * alturacm) - (5 * idade) - 161)
+   else:
+      print ""
 else:
-       print "insira o genero"
+   TMB = (370 + ( 21.6 * ( peso - (peso * BF * 1/100 ))))
 
 
 
@@ -50,16 +91,22 @@ else:
 print " "
 print "Escolha o tipo de dieta pretendida:"
 print "1- Hipocalorica ; 2- Normocalorica ; 3- Hipercalorica"
-print " "
+print ""
 
 DSC = input ("") # DSC: Deficit ou Superavit Calorico / CD: Calorias Diarias
 
+print ""
+
 if   DSC == 1:
-       CD = (ICR - 250)
+       kcalsem = input ("Quantos kilos pretende perder por semana? ")
+       kcaldia = ( kcalsem * 7700 / 7 )
+       CD = (ICR - kcaldia)
 elif DSC == 2:
        CD = ICR
 elif DSC == 3:
-       CD = (ICR + 250)
+       kcalsem = input ("Quantos kilos pretende ganhar por semana? ")
+       kcaldia = ( kcalsem * 7700 / 7 )
+       CD = (ICR + kcaldia)
 else:
        print "Escolha um numero valido"
 
@@ -69,7 +116,7 @@ else:
 
 print " "
 
-PercCarbo = input ("Qual o percentual de Carbohidratos de sua dieta? 0 a 100: ")
+PercCarbo = input ("Qual o percentual de Carboidratos de sua dieta? 0 a 100: ")
 PercProte = input ("Qual o percentual de Proteinas de sua dieta? 0 a 100: ")
 PercLipid = input ("Qual o percentual de Lipideos de sua dieta? 0 a 100: ")
                                                                                      # Percentuais de cada Macro-Nutriente
@@ -104,7 +151,7 @@ GrLipiPRf = ( GramLipid / QtRfLipid )
 
 
 print " "
-print "genero: ", genero, " ; peso: ", peso, " ; altura: ", altura, " ; idade: ", idade
+print "genero: ", genero, " ; peso: ", peso, " ; altura: ", alturam, " ; idade: ", idade
 print "QES: ", QES, " ; TMB: ", TMB, " ; ICR: ", ICR
 print "DSC: ", DSC, " ; CD: ", CD
 print "PercCarbo, PercProte, PercLipid: ", PercCarbo, " , ", PercProte, " , ", PercLipid, " . "
