@@ -5,13 +5,13 @@ print "Calculo do TMB (Taxa do Metabolismo Basal)"
 
 lacoTMB = 0
 
-while ( lacoTMB <> 1 ):
+while ( lacoTMB != 1 ):
 
    print""
 
    genero = input ("Qual seu genero? 1-Homen ; 2-Mulher ")
 
-   while (genero <> ( 1 or 2 )):
+   while ( genero != 1 and genero != 2 ):
       print ""
       print "escolha um genero existente"
       genero = input ("Qual o seu genero? 1-Homen ; 2-Mulher ")
@@ -68,7 +68,7 @@ print "Calculo da ICR (Ingestao Calorica Recomendada)"
 
 lacoICR = 0
 
-while ( lacoICR <> 1 ):
+while ( lacoICR != 1 ):
 
    print ""
    print "Com qual item dessa tabela se assemelha sua quantidade de exercicios semanal ?"
@@ -83,7 +83,7 @@ while ( lacoICR <> 1 ):
    QES = input ("")  # QE = Quantidade de Exercicio Semanal
    print ""
 
-   while (QES <> ( 1 or 2 or 3 or 4 or 5 )):
+   while ( QES != 1 and QES != 2 and QES != 3 and QES != 4 and QES != 5 ):
 
       print "Valor invalido, escolha novamente"
 
@@ -136,7 +136,7 @@ print "Calculo do balanco do Deficit ou Superavit calorico (DSC)"
 
 lacoDSC = 0
 
-while ( lacoDSC <> 1 ):
+while ( lacoDSC != 1 ):
 
    print ""
    print "Escolha o tipo de dieta pretendida:"
@@ -146,7 +146,7 @@ while ( lacoDSC <> 1 ):
    DSC = input ("") # DSC: Deficit ou Superavit Calorico / CD: Calorias Diarias
 
 
-   while ( DSC <> ( 1 or 2 or 3 )):
+   while ( DSC != 1 and DSC != 2 and DSC != 3 ):
       print "escolha um valor possivel"
       print ""
       print "Escolha o tipo de dieta pretendida:"
